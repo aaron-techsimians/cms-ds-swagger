@@ -4,7 +4,7 @@ info:
   title: Cms_DS
   version: 1.0.0
 servers:
-- url: https://dev-cms-ds.diabosapp.biz
+- url: https://api-dev.diabosapp.biz/cms-ds/
 tags:
 - name: Operators
 - name: Payments
@@ -14,6 +14,7 @@ tags:
 paths:
   /ebury/getAccountBalances:
     post:
+      description: Retrieves the details of account balances
       tags:
       - Operators
       summary: getAccountBalances
@@ -25,7 +26,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -42,6 +43,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -65,7 +74,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -73,7 +82,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: user-agent
         in: header
         required: false
@@ -96,6 +105,7 @@ paths:
       - bearerAuth: []
   /payments/rejectMultiPayment:
     post:
+      description: Rejects multiple payments from checker side
       tags:
       - Payments
       summary: RejectMulti
@@ -118,6 +128,7 @@ paths:
       - bearerAuth: []
   /payments/getNudges:
     post:
+      description: It nudges any specific user.
       tags:
       - Payments
       summary: Payments getNudges
@@ -129,7 +140,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -146,6 +157,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -169,7 +188,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -177,7 +196,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -248,6 +267,7 @@ paths:
       - bearerAuth: []
   /payments/get:
     post:
+      description: Retrieves list of role specific pending payments.
       tags:
       - Payments
       summary: Payments get
@@ -282,6 +302,7 @@ paths:
       - bearerAuth: []
   /payments/getGrouped:
     post:
+      description: It retrieves payments merged by the maker.
       tags:
       - Payments
       summary: Payments getGrouped
@@ -293,7 +314,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -310,6 +331,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -333,7 +362,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -341,7 +370,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -412,6 +441,7 @@ paths:
       - bearerAuth: []
   /payments/getPayments:
     post:
+      description: It retrieves payments according to the filter.
       tags:
       - Payments
       summary: payments getPayments
@@ -423,7 +453,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -440,6 +470,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -463,7 +501,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -471,7 +509,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -542,6 +580,7 @@ paths:
       - bearerAuth: []
   /ebury/getClientBalances:
     post:
+      description: It retrieves the trust account balances 
       tags:
       - Payments
       summary: getClientBalances
@@ -553,7 +592,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -570,6 +609,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -593,7 +640,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -601,7 +648,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: user-agent
         in: header
         required: false
@@ -624,6 +671,7 @@ paths:
       - bearerAuth: []
   /payments/checkAdd:
     post:
+      description: Checks the beneficiary details of any trust account
       tags:
       - Payments
       summary: Payment add check
@@ -644,6 +692,7 @@ paths:
       - bearerAuth: []
   /notification/get:
     post:
+      description: It retrieves the notifications for specific user.
       tags:
       - Notifications
       summary: Get Notifications Grouped
@@ -659,6 +708,7 @@ paths:
             application/json: {}
   /notification/markAsRead:
     post:
+      description: It discards the notification.
       tags:
       - Notifications
       summary: notification markAsRead
@@ -670,7 +720,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -687,6 +737,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -710,7 +768,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -718,7 +776,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -789,6 +847,7 @@ paths:
       - bearerAuth: []
   /notification/find:
     post:
+      description: Finds the exact notification.
       tags:
       - Notifications
       summary: notification find
@@ -800,7 +859,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -817,6 +876,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -840,7 +907,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -848,7 +915,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -919,6 +986,7 @@ paths:
       - bearerAuth: []
   /refinitiv/getResults:
     post:
+      description: Retrieves refinitiv results for any specific agent or vessel.
       tags:
       - Refinitiv
       summary: View Refinitiv Results
@@ -936,6 +1004,7 @@ paths:
       - bearerAuth: []
   /report/fundProjection:
     post:
+      description: Funds specific projection for a specific trust account.
       tags:
       - Reports
       summary: report fundProjection
@@ -947,7 +1016,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -964,6 +1033,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -987,7 +1064,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -995,7 +1072,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: user-agent
         in: header
         required: false
@@ -1018,6 +1095,7 @@ paths:
       - bearerAuth: []
   /report/getAgentAndVessels:
     post:
+      description: Retrieves the information about agents and vessels from DA application.
       tags:
       - Reports
       summary: report getAgentAndVessels
@@ -1029,7 +1107,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -1046,6 +1124,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -1069,7 +1155,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -1077,7 +1163,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -1100,6 +1186,7 @@ paths:
       - bearerAuth: []
   /ebury/getPastBalances:
     post:
+      description: Retrieves the past balances for a specific account.
       tags:
       - Reports
       summary: report getPastBalances
@@ -1111,7 +1198,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -1128,6 +1215,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -1151,7 +1246,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -1159,7 +1254,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -1230,6 +1325,7 @@ paths:
       - bearerAuth: []
   /report/fundOverview:
     post:
+      description: It gives an overview of the funds.
       tags:
       - Reports
       summary: report fundOverview
@@ -1245,6 +1341,7 @@ paths:
             application/json: {}
   /report/fundOverviewByDept:
     post:
+      description: Gives an overview of the funds.
       tags:
       - Reports
       summary: report fundOverviewByDept
@@ -1256,7 +1353,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -1273,6 +1370,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -1296,7 +1401,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -1304,7 +1409,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -1375,6 +1480,7 @@ paths:
       - bearerAuth: []
   /report/fundProjectionByDept:
     post:
+      description: Gives fund projection by department.
       tags:
       - Reports
       summary: report fundProjectionByDept
@@ -1386,7 +1492,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -1403,6 +1509,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -1426,7 +1540,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -1434,7 +1548,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
@@ -1505,6 +1619,7 @@ paths:
       - bearerAuth: []
   /report/getSoa:
     post:
+      description: Gets the Statement of Account for given client.
       tags:
       - Reports
       summary: report getSoa
@@ -1516,7 +1631,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: dev-cms-ds.diabosapp.biz
+        example: api-dev.diabosapp.biz/cms-ds
       - name: accept
         in: header
         required: false
@@ -1533,6 +1648,14 @@ paths:
         schema:
           type: string
         example: "en-US,en;q=0.9"
+      - name: x-api-key
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
       - name: authorization
         in: header
         required: false
@@ -1556,7 +1679,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz
+        example: https://api-dev.diabosapp.biz/cms-ds/
       - name: referer
         in: header
         required: false
@@ -1564,7 +1687,7 @@ paths:
         explode: false
         schema:
           type: string
-        example: https://dev-cms.diabosapp.biz/
+        example: https://api-dev.diabosapp.biz/cms-ds//
       - name: sec-ch-ua
         in: header
         required: false
