@@ -1,0 +1,1917 @@
+---
+openapi: 3.0.0
+info:
+  title: Cms_DS
+  version: 1.0.0
+servers:
+- url: https://dev-cms-ds.diabosapp.biz
+tags:
+- name: Operators
+- name: Payments
+- name: Notifications
+- name: Refinitiv
+- name: Reports
+paths:
+  /ebury/getAccountBalances:
+    post:
+      tags:
+      - Operators
+      summary: getAccountBalances
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjU0ZDQzOTlhLWZlM2QtNDUzZi1hZmI4LWY4MmUzNjQ4MTI2MiIsImV2ZW50X2lkIjoiNDlhOTNkN2ItN2ZhOC00YTAxLWE4MDMtMmM1MjU5ZmI2YmFhIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODc5NTQwNywiZXhwIjoxNjc4ODA5ODA3LCJpYXQiOjE2Nzg3OTU0MDcsImp0aSI6ImEwOGUyZTc0LWRkNmUtNDM2NS05YTNmLWQ5MTgwZTIxOTQwYiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.pqgnEhIXa7X6bNYqg4HR_2LAD9oarakCnBcrLtL-lpxgSil2oi1sR4UBcDY1ScW9aHpKFNvZWMtNK7epF3OaRRXJQLjuCT8_gPolIQBqVoyKHB9X-uvEHRHrcYN5jnWqHiWbIsXHHkBxVWaceK43Hz55qzwHlSc7xuktKeu1KuDbqXvuBxppmlZnSqmNIe7ZBN6d_CsTl5YW5Qyf55wifp_UehAANAtBIGoDGUJsplwwzbPRQEski3mLLIhTjyN_RPbPN-w-DSoZr4bgv4-BmKolHEKgnXzk9khxIu7TrlgChB4QyigOUIzBHsUVcqyac1tDTy5qddc9nacxyXTqNA
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebury_getAccountBalances_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/rejectMultiPayment:
+    post:
+      tags:
+      - Payments
+      summary: RejectMulti
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                payments:
+                - _id: 63b7e4bc64839b2388e24424
+                  obj:
+                    substatus: sentToMaker
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/getNudges:
+    post:
+      tags:
+      - Payments
+      summary: Payments getNudges
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImJiOGUxYWQ3LTMwNmItNGVmYy1hNTAwLTQ2YTJiMzEzYTg5ZiIsImV2ZW50X2lkIjoiMjY4NDQ5M2YtNzU0Zi00ZGMxLWIzZjctOTI3ZjBmNmVmOTRkIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI1NzEzNCwiZXhwIjoxNjc4MjcxNTM0LCJpYXQiOjE2NzgyNTcxMzQsImp0aSI6ImRkY2FmMjUxLTM0ZGEtNDUyMi05YWE3LWQ0ZmQwMDMwMDFlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.ucxGk_2Qqz3Rm4OKL_JPhiUGxSXt6Ge-L2Hob8ONEZcCqRqviuWrZCV8CCf0dzRCHC4w_mtEGmcCJDihsawG9L8RcFf0N9F_wZetTKsBml3LSw8D96AQQyBn_jaHb4bHq93eM_BXVFiD0Ad7osmj_aFgr64HZmCTUVGVCNEkEr9Qf0NDDkJtHU2E51uU1JB-vpGcEQq4p9R6FNJy094CFGb7V4lZq4nQWXyakZBMOSjTJQbH5IllU2yO8TzbC_W1w2tVGcpnGixSOn2RjBxpdN3RbkmbuK4AwcMfyHMjtsdqhR0u-KKbVHWlRvv8jJyCVQoEUU_TBtEdO2MXbz1pTQ
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/payments_getNudges_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/get:
+    post:
+      tags:
+      - Payments
+      summary: Payments get
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                limit: 10
+                skip: 0
+                query:
+                  portcallNo:
+                    $regex: ""
+                    $options: i
+                  $or:
+                  - subStatus:
+                      $exists: false
+                  - subStatus: sentToMaker
+                  mergeId:
+                    $exists: false
+                  valueDate:
+                    $gte: 2023/03/14
+                sort:
+                  createdAt: -1
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/getGrouped:
+    post:
+      tags:
+      - Payments
+      summary: Payments getGrouped
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/payments_getGrouped_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/getPayments:
+    post:
+      tags:
+      - Payments
+      summary: payments getPayments
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/payments_getPayments_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /ebury/getClientBalances:
+    post:
+      tags:
+      - Payments
+      summary: getClientBalances
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebury_getClientBalances_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /payments/checkAdd:
+    post:
+      tags:
+      - Payments
+      summary: Payment add check
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                iban: NO4052852232487
+                clientId: EBPCLI285261
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /notification/get:
+    post:
+      tags:
+      - Notifications
+      summary: Get Notifications Grouped
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/notification_get_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /notification/markAsRead:
+    post:
+      tags:
+      - Notifications
+      summary: notification markAsRead
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/notification_markAsRead_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /notification/find:
+    post:
+      tags:
+      - Notifications
+      summary: notification find
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/notification_find_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /refinitiv/getResults:
+    post:
+      tags:
+      - Refinitiv
+      summary: View Refinitiv Results
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/refinitiv_getResults_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /report/fundProjection:
+    post:
+      tags:
+      - Reports
+      summary: report fundProjection
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_fundProjection_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /report/getAgentAndVessels:
+    post:
+      tags:
+      - Reports
+      summary: report getAgentAndVessels
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImUzNjAwODMzLTgzN2MtNDRkMC04YWNiLTVmMzM2Y2RiNTg5OCIsImV2ZW50X2lkIjoiZDJhY2M3N2QtMTlhOS00MDNkLWE2MDItZTAyMjU0M2NmOWQ1IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODcwODU1NiwiZXhwIjoxNjc4NzIyOTU2LCJpYXQiOjE2Nzg3MDg1NTYsImp0aSI6IjRmMjQzZmViLWRmM2QtNDY2YS1iZTQ3LTBhNWFiMDcxYjQyZSIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.SCKdlYv3sqYwxRpf7eNm4teV9BVCrXi0k2rcAapJnENqSWPMTEkYoKm2HTBHJMPLhCjn_zllBiWAxSn-wv0GV_pGCc2wfjNcQVq7uJUhrgbpGOpe4JJ7pUMtt3fgwWQlL6EFj6K1lbmuKiUjgg9mhjdSf5LRxaOl2ydJoIgmDxEyyul5hJYO7dn4g8bX61Jy6Eh1Ek1_uYvUalE7XjNQuxrCfwARURDVl0H3dllxyHIRKySyxysA9ufBdeRiIpIkG5iP1yKBlyj7C2GgiZRMIgQ-wxGMN0dvA1Jcr2P8B8xJjycu0uWZNq_qwOljGlrY9srrJIREtiZis538pSQImg
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_getAgentAndVessels_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /ebury/getPastBalances:
+    post:
+      tags:
+      - Reports
+      summary: report getPastBalances
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebury_getPastBalances_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /report/fundOverview:
+    post:
+      tags:
+      - Reports
+      summary: report fundOverview
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_fundOverview_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /report/fundOverviewByDept:
+    post:
+      tags:
+      - Reports
+      summary: report fundOverviewByDept
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_fundOverviewByDept_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /report/fundProjectionByDept:
+    post:
+      tags:
+      - Reports
+      summary: report fundProjectionByDept
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_fundProjectionByDept_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+  /report/getSoa:
+    post:
+      tags:
+      - Reports
+      summary: report getSoa
+      parameters:
+      - name: authority
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: dev-cms-ds.diabosapp.biz
+      - name: accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: accept-language
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "en-US,en;q=0.9"
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+      - name: content-type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: origin
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz
+      - name: referer
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: https://dev-cms.diabosapp.biz/
+      - name: sec-ch-ua
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
+      - name: sec-ch-ua-mobile
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: ?0
+      - name: sec-ch-ua-platform
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '"Windows"'
+      - name: sec-fetch-dest
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: empty
+      - name: sec-fetch-mode
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: cors
+      - name: sec-fetch-site
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: same-site
+      - name: user-agent
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_getSoa_body'
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    refinitiv_getResults_body:
+      type: object
+      properties:
+        caseSystemId:
+          type: string
+    paymentsgetGrouped_sort:
+      type: object
+      properties:
+        createdAt:
+          type: number
+    report_getAgentAndVessels_body:
+      type: object
+      properties:
+        vesselQury:
+          $ref: '#/components/schemas/reportgetAgentAndVessels_vesselQury'
+        agentQuery:
+          type: string
+    reportfundOverview_query:
+      type: object
+      properties:
+        ownerId:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        paymentAdviceType:
+          $ref: '#/components/schemas/reportfundOverview_query_paymentAdviceType'
+        trustAccountDetails.iban:
+          type: string
+    paymentsgetNudges_sort:
+      type: object
+      properties:
+        createdOn:
+          type: number
+    report_getSoa_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        query:
+          $ref: '#/components/schemas/reportgetSoa_query'
+    payments_getNudges_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        query:
+          $ref: '#/components/schemas/paymentsgetNudges_query'
+        sort:
+          $ref: '#/components/schemas/paymentsgetNudges_sort'
+    notification_get_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        query:
+          $ref: '#/components/schemas/notificationget_query'
+        date:
+          type: string
+    reportfundProjection_query:
+      type: object
+      properties:
+        ownerId:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+    payments_getPayments_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        query:
+          $ref: '#/components/schemas/paymentsgetPayments_query'
+        sort:
+          $ref: '#/components/schemas/paymentsgetGrouped_sort'
+    reportfundOverview_query_paymentAdviceType:
+      type: object
+      properties:
+        sample:
+          type: array
+          items:
+            type: string
+    notificationget_query:
+      type: object
+      properties:
+        userId:
+          type: string
+        read:
+          type: boolean
+    eburygetPastBalances_query:
+      type: object
+      properties:
+        timestamp:
+          type: string
+    reportfundProjectionByDept_query_tier.dept:
+      type: object
+      properties:
+        _$elemMatch:
+          $ref: reportfundOverviewByDept_query_tier.dept__elemMatch
+    reportfundProjection_query_ownerId:
+      type: object
+      properties:
+        _$in:
+          type: array
+          items:
+            type: string
+    reportfundOverviewByDept_query_tier:
+      type: object
+      properties:
+        _$exists:
+          type: array
+          items:
+            type: string
+    report_fundProjection_body:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/reportfundProjection_query'
+        iban:
+          type: string
+        legalentityid:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+    ebury_getPastBalances_body:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/eburygetPastBalances_query'
+    notification_markAsRead_body:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+        user_id:
+          type: string
+    report_fundOverview_body:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/reportfundOverview_query'
+    reportgetSoa_query_valueDate:
+      type: object
+      properties:
+        _$gte:
+          type: string
+        _$lte:
+          type: string
+    reportfundOverviewByDept_query_tier.dept__elemMatch:
+      type: object
+      properties:
+        deptId:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+    paymentsgetNudges_query:
+      type: object
+      properties:
+        nudgeBy:
+          type: string
+    paymentsgetPayments_query:
+      type: object
+      properties:
+        fintechStatus:
+          type: string
+        portcallNo:
+          $ref: '#/components/schemas/paymentsgetPayments_query_portcallNo'
+    notification_find_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        query:
+          type: object
+        sort:
+          type: object
+    paymentsgetGrouped_query:
+      type: object
+      properties:
+        subStatus:
+          type: string
+    reportgetAgentAndVessels_vesselQury:
+      type: object
+      properties:
+        fintechStatus:
+          type: string
+    reportgetSoa_query_sort:
+      type: object
+      properties:
+        valueDate:
+          type: string
+    reportgetSoa_query:
+      type: object
+      properties:
+        ownerId:
+          type: string
+        trustAccountdetails.iban:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        valueDate:
+          $ref: '#/components/schemas/reportgetSoa_query_valueDate'
+        fintechStatus:
+          type: string
+        sort:
+          $ref: '#/components/schemas/reportgetSoa_query_sort'
+    reportfundOverviewByDept_query:
+      type: object
+      properties:
+        tier:
+          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier'
+        ownerId:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        trustAccountDetails.iban:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        tier.dept:
+          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier.dept'
+    reportfundProjectionByDept_query:
+      type: object
+      properties:
+        tier:
+          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier'
+        ownerId:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        trustAccountDetails.iban:
+          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
+        tier.dept:
+          $ref: '#/components/schemas/reportfundProjectionByDept_query_tier.dept'
+    payments_getGrouped_body:
+      type: object
+      properties:
+        limit:
+          type: number
+        skip:
+          type: number
+        sort:
+          $ref: '#/components/schemas/paymentsgetGrouped_sort'
+        query:
+          $ref: '#/components/schemas/paymentsgetGrouped_query'
+    report_fundOverviewByDept_body:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/reportfundOverviewByDept_query'
+    ebury_getAccountBalances_body:
+      type: object
+      properties:
+        clientId:
+          type: string
+    paymentsgetPayments_query_portcallNo:
+      type: object
+      properties:
+        _$regex:
+          type: string
+        _options:
+          type: string
+    report_fundProjectionByDept_body:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/reportfundProjectionByDept_query'
+    ebury_getClientBalances_body:
+      type: object
+      properties:
+        client_id:
+          type: string
+    reportfundOverviewByDept_query_tier.dept:
+      type: object
+      properties:
+        _$elemMatch:
+          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier.dept__elemMatch'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
