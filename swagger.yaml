@@ -1,73 +1,124 @@
----
 openapi: 3.0.0
 info:
   title: Cms_DS
   version: 1.0.0
 servers:
-- url: https://api-dev.diabosapp.biz/cms-ds/
+  - url: https://cors-anywhere.herokuapp.com/https://api-dev.diabosapp.biz/cms-ds
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
 tags:
-- name: Operators
-- name: Payments
-- name: Notifications
-- name: Refinitiv
-- name: Reports
+  - name: Operators
+  - name: Payments
+  - name: Notifications
+  - name: Refinitiv
+  - name: Reports
 paths:
   /ebury/getAccountBalances:
     post:
-      description: Retrieves the details of account balances
       tags:
-      - Operators
+        - Operators
       summary: getAccountBalances
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjU0ZDQzOTlhLWZlM2QtNDUzZi1hZmI4LWY4MmUzNjQ4MTI2MiIsImV2ZW50X2lkIjoiNDlhOTNkN2ItN2ZhOC00YTAxLWE4MDMtMmM1MjU5ZmI2YmFhIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODc5NTQwNywiZXhwIjoxNjc4ODA5ODA3LCJpYXQiOjE2Nzg3OTU0MDcsImp0aSI6ImEwOGUyZTc0LWRkNmUtNDM2NS05YTNmLWQ5MTgwZTIxOTQwYiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.pqgnEhIXa7X6bNYqg4HR_2LAD9oarakCnBcrLtL-lpxgSil2oi1sR4UBcDY1ScW9aHpKFNvZWMtNK7epF3OaRRXJQLjuCT8_gPolIQBqVoyKHB9X-uvEHRHrcYN5jnWqHiWbIsXHHkBxVWaceK43Hz55qzwHlSc7xuktKeu1KuDbqXvuBxppmlZnSqmNIe7ZBN6d_CsTl5YW5Qyf55wifp_UehAANAtBIGoDGUJsplwwzbPRQEski3mLLIhTjyN_RPbPN-w-DSoZr4bgv4-BmKolHEKgnXzk9khxIu7TrlgChB4QyigOUIzBHsUVcqyac1tDTy5qddc9nacxyXTqNA
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/ebury_getAccountBalances_body'
+              type: object
+              example: {"clientId":"EBPCLI285630"}
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjU0ZDQzOTlhLWZlM2QtNDUzZi1hZmI4LWY4MmUzNjQ4MTI2MiIsImV2ZW50X2lkIjoiNDlhOTNkN2ItN2ZhOC00YTAxLWE4MDMtMmM1MjU5ZmI2YmFhIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODc5NTQwNywiZXhwIjoxNjc4ODA5ODA3LCJpYXQiOjE2Nzg3OTU0MDcsImp0aSI6ImEwOGUyZTc0LWRkNmUtNDM2NS05YTNmLWQ5MTgwZTIxOTQwYiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.pqgnEhIXa7X6bNYqg4HR_2LAD9oarakCnBcrLtL-lpxgSil2oi1sR4UBcDY1ScW9aHpKFNvZWMtNK7epF3OaRRXJQLjuCT8_gPolIQBqVoyKHB9X-uvEHRHrcYN5jnWqHiWbIsXHHkBxVWaceK43Hz55qzwHlSc7xuktKeu1KuDbqXvuBxppmlZnSqmNIe7ZBN6d_CsTl5YW5Qyf55wifp_UehAANAtBIGoDGUJsplwwzbPRQEski3mLLIhTjyN_RPbPN-w-DSoZr4bgv4-BmKolHEKgnXzk9khxIu7TrlgChB4QyigOUIzBHsUVcqyac1tDTy5qddc9nacxyXTqNA
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/rejectMultiPayment:
     post:
-      description: Rejects multiple payments from checker side
       tags:
-      - Payments
+        - Payments
       summary: RejectMulti
       requestBody:
         content:
@@ -76,120 +127,122 @@ paths:
               type: object
               example:
                 payments:
-                - _id: 63b7e4bc64839b2388e24424
-                  obj:
-                    substatus: sentToMaker
+                  - _id: 63b7e4bc64839b2388e24424
+                    obj:
+                      substatus: sentToMaker
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/getNudges:
     post:
-      description: It nudges any specific user.
       tags:
-      - Payments
+        - Payments
       summary: Payments getNudges
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImJiOGUxYWQ3LTMwNmItNGVmYy1hNTAwLTQ2YTJiMzEzYTg5ZiIsImV2ZW50X2lkIjoiMjY4NDQ5M2YtNzU0Zi00ZGMxLWIzZjctOTI3ZjBmNmVmOTRkIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI1NzEzNCwiZXhwIjoxNjc4MjcxNTM0LCJpYXQiOjE2NzgyNTcxMzQsImp0aSI6ImRkY2FmMjUxLTM0ZGEtNDUyMi05YWE3LWQ0ZmQwMDMwMDFlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.ucxGk_2Qqz3Rm4OKL_JPhiUGxSXt6Ge-L2Hob8ONEZcCqRqviuWrZCV8CCf0dzRCHC4w_mtEGmcCJDihsawG9L8RcFf0N9F_wZetTKsBml3LSw8D96AQQyBn_jaHb4bHq93eM_BXVFiD0Ad7osmj_aFgr64HZmCTUVGVCNEkEr9Qf0NDDkJtHU2E51uU1JB-vpGcEQq4p9R6FNJy094CFGb7V4lZq4nQWXyakZBMOSjTJQbH5IllU2yO8TzbC_W1w2tVGcpnGixSOn2RjBxpdN3RbkmbuK4AwcMfyHMjtsdqhR0u-KKbVHWlRvv8jJyCVQoEUU_TBtEdO2MXbz1pTQ
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/payments_getNudges_body'
+              type: object
+              example: >-
+                {"limit":10,"skip":0,"query":{"nudgeBy":""},"sort":{"createdOn":-1}}
+
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImJiOGUxYWQ3LTMwNmItNGVmYy1hNTAwLTQ2YTJiMzEzYTg5ZiIsImV2ZW50X2lkIjoiMjY4NDQ5M2YtNzU0Zi00ZGMxLWIzZjctOTI3ZjBmNmVmOTRkIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI1NzEzNCwiZXhwIjoxNjc4MjcxNTM0LCJpYXQiOjE2NzgyNTcxMzQsImp0aSI6ImRkY2FmMjUxLTM0ZGEtNDUyMi05YWE3LWQ0ZmQwMDMwMDFlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.ucxGk_2Qqz3Rm4OKL_JPhiUGxSXt6Ge-L2Hob8ONEZcCqRqviuWrZCV8CCf0dzRCHC4w_mtEGmcCJDihsawG9L8RcFf0N9F_wZetTKsBml3LSw8D96AQQyBn_jaHb4bHq93eM_BXVFiD0Ad7osmj_aFgr64HZmCTUVGVCNEkEr9Qf0NDDkJtHU2E51uU1JB-vpGcEQq4p9R6FNJy094CFGb7V4lZq4nQWXyakZBMOSjTJQbH5IllU2yO8TzbC_W1w2tVGcpnGixSOn2RjBxpdN3RbkmbuK4AwcMfyHMjtsdqhR0u-KKbVHWlRvv8jJyCVQoEUU_TBtEdO2MXbz1pTQ
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/get:
     post:
-      description: Retrieves list of role specific pending payments.
       tags:
-      - Payments
+        - Payments
       summary: Payments get
       requestBody:
         content:
@@ -201,279 +254,327 @@ paths:
                 skip: 0
                 query:
                   portcallNo:
-                    $regex: ""
+                    $regex: ''
                     $options: i
                   $or:
-                  - subStatus:
-                      $exists: false
-                  - subStatus: sentToMaker
+                    - subStatus:
+                        $exists: false
+                    - subStatus: sentToMaker
                   mergeId:
                     $exists: false
                   valueDate:
                     $gte: 2023/03/14
                 sort:
                   createdAt: -1
+
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/getGrouped:
     post:
-      description: It retrieves payments merged by the maker.
       tags:
-      - Payments
+        - Payments
       summary: Payments getGrouped
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/payments_getGrouped_body'
+              type: object
+              example: {"limit": 100,"skip": 0,"sort":
+                {"createdAt": -1},"query":
+                {"subStatus": "inMakerWallet"}}
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/getPayments:
     post:
-      description: It retrieves payments according to the filter.
       tags:
-      - Payments
+        - Payments
       summary: payments getPayments
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/payments_getPayments_body'
+              type: object
+              example: 
+                {"limit": 10,"skip": 0,"query":
+                {"fintechStatus":"PENDING_OF_AUTHORIZATION","portcallNo":
+                {"$regex": "","$options":"i"}},"sort": {"createdAt": -1}}
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6IjkyNWViZTAwLWE3YzgtNGRmNS04MGYzLThmZWQ2MzM4MTdjYSIsImV2ZW50X2lkIjoiOGRkMDA0YWEtOWQ1NC00OTk4LWFiMjMtMjE0MDQ0NTJlM2IxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODUxMTU5OSwiZXhwIjoxNjc4NTI1OTk5LCJpYXQiOjE2Nzg1MTE1OTksImp0aSI6ImQyNzQwZTMxLWMyMDMtNGFkMi05ZWZiLThhNDZkZmZiYmY5MiIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.lgkg9WOkFx-CFGyn3-T7ygDIms3E1cSn_O2ySfFj2txZS5_KmosGeUL3dP9MbsYasrm4CjluoTrzP12SyhMSbAnBNoXUUqEXz6WRkAUFxYkdm6V-L20BD1MVXA4cqCgN74JwdC2zDRyKpsDbbmsp6X9ITPDnnwoNAIT6iW2SoH1ZBzHwF7VB3JApZjmwgjmnanuTnINRG5gwMfwCfthyE9PM5p_8vUOAl-y6Zt467iY2q3f9WYqER1lmrDFOGVCfxIVlmbCdSxP8tv7DERNxoVYnUzf_I33CT_8ofA81rxjx6eZKc8Hb9qOZ3qO1rh9UwlWqriNHKNECTpq32Y0LNg
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /ebury/getClientBalances:
     post:
-      description: It retrieves the trust account balances 
       tags:
-      - Payments
+        - Payments
       summary: getClientBalances
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/ebury_getClientBalances_body'
+              type: object
+              example: {"client_id":"EBPCLI285624"}
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfeTI0a1pxMXhmIiwiY29nbml0bzp1c2VybmFtZSI6ImRldm1ha2VyIiwib3JpZ2luX2p0aSI6IjYyMjQwMjg5LWQyNWMtNDU0YS04ZjY5LWM4YjQ3NmM1MWRhNSIsImF1ZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwiZXZlbnRfaWQiOiJiYTBiZGI4Yy1mY2E2LTQyODUtYTliMC05NGVmMjhmYTIxNjQiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTY4Mzc4OTI0OCwiZXhwIjoxNjgzODAzNjQ4LCJpYXQiOjE2ODM3ODkyNDgsImp0aSI6ImMzZjA5OTM3LWZiNTEtNGRmZC04ZTY4LTNkZGNkZWQzYzI3OSIsImVtYWlsIjoiZGV2bWFrZXJAeW9wbWFpbC5jb20ifQ.kPrIRmbvEpPthv_bmQQnCbNZcEijH0wUtUHR9EWmW2orvc4y6XwxgowArWClAu8bLTM_ZmGf9JThOj7hhl_WbQ0ZvOjjXj-T4R62cx71nFhFa4ZzCL9DD0LJpTLBtbGZdhUEg0b5bAPvBxNvr-aaTmhxnRjXJIyLInrDVJcpiJY-idRw2wLE_F0em7GscdsSYAsW4-f7EGbGj0UGd-_rxYrKxxurGNM24QthEBju8liUNhvVCiTn6U9kIjFnUkQtEVmrkpgrWY04Pgfim9G0yu7M13_fX9Q8i8LPzBlKsgmPxq1r1CBfkb1DPelDPkftQ21oxiZY8xquSEsQ82RUJQ
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /payments/checkAdd:
     post:
-      description: Checks the beneficiary details of any trust account
       tags:
-      - Payments
+        - Payments
       summary: Payment add check
       requestBody:
         content:
@@ -483,1046 +584,981 @@ paths:
               example:
                 iban: NO4052852232487
                 clientId: EBPCLI285261
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /notification/get:
     post:
-      description: It retrieves the notifications for specific user.
       tags:
-      - Notifications
+        - Notifications
       summary: Get Notifications Grouped
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/notification_get_body'
+              type: object
+              example:
+                limit: 2
+                skip: 0
+                query:
+                  userId: l74axxm83hskaw8o3tyc2w8e
+                  read: false
+                date: '2022-09-11'
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
   /notification/markAsRead:
     post:
-      description: It discards the notification.
       tags:
-      - Notifications
+        - Notifications
       summary: notification markAsRead
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/notification_markAsRead_body'
+              type: object
+              example: {"ids": ["64009594e22b6dc231ea891a"],"user_id":
+                "e03baee9-edf3-404a-a3ad-dccb65ce8d94"}
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /notification/find:
     post:
-      description: Finds the exact notification.
       tags:
-      - Notifications
+        - Notifications
       summary: notification find
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/notification_find_body'
+              type: object
+              example: {"limit":10,"skip":0,"query":{},"sort":{"createdOn":-1}}
+
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /refinitiv/getResults:
     post:
-      description: Retrieves refinitiv results for any specific agent or vessel.
       tags:
-      - Refinitiv
+        - Refinitiv
       summary: View Refinitiv Results
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/refinitiv_getResults_body'
+              type: object
+              example:
+                caseSystemId: 5jb7m6pgv3sq1h4vxtmuatiag
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /report/fundProjection:
     post:
-      description: Funds specific projection for a specific trust account.
       tags:
-      - Reports
+        - Reports
       summary: report fundProjection
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_fundProjection_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImU3NmM0NWMzLTY4ZWItNDc5OC1iZmFhLTVkMTdjZTBiMDFlZCIsImV2ZW50X2lkIjoiOGUyMDc4YWEtNjg5ZS00OWY0LWFjZjgtZDg2N2ZjOWMwNTllIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODI3NTY0MywiZXhwIjoxNjc4MjkwMDQzLCJpYXQiOjE2NzgyNzU2NDMsImp0aSI6ImNmYmQyYmMyLTRhMmUtNGI2Ni1iNGU4LWNkZjE2YWI1YTVlNCIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.KNu72lotmzF10tsxjmD4uFg7Rggg9Ep6CEdPUxgZUqYCH1wf9bMo4OvTqVhPEzvnMNvXKZo_jLgoS2XlQ_lb1evfxxJxRtYS-2k52KxyZpVxz3kN74RBKdS0APVrkQ6-MmCw6uoghOxhfRqBmEcffFao9upmBepN-JSh1GdJcS23I9N5ZZMA7qQ4gFFgHX773oLIwSVlJiKqet1njCSIAc_vumpQepmPYy9IxeKENNsxlLpaqlRTCgkXi77IdlUu0QkRsED0E3F8tPJw1VxXEiAkYTVS2h2HC4qBFaINjwE5kKkUKEa2izEZTZXB9n5CkNrqa_E6_GRMpQ6KuD5SRw
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /report/getAgentAndVessels:
     post:
-      description: Retrieves the information about agents and vessels from DA application.
       tags:
-      - Reports
+        - Reports
       summary: report getAgentAndVessels
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImUzNjAwODMzLTgzN2MtNDRkMC04YWNiLTVmMzM2Y2RiNTg5OCIsImV2ZW50X2lkIjoiZDJhY2M3N2QtMTlhOS00MDNkLWE2MDItZTAyMjU0M2NmOWQ1IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODcwODU1NiwiZXhwIjoxNjc4NzIyOTU2LCJpYXQiOjE2Nzg3MDg1NTYsImp0aSI6IjRmMjQzZmViLWRmM2QtNDY2YS1iZTQ3LTBhNWFiMDcxYjQyZSIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.SCKdlYv3sqYwxRpf7eNm4teV9BVCrXi0k2rcAapJnENqSWPMTEkYoKm2HTBHJMPLhCjn_zllBiWAxSn-wv0GV_pGCc2wfjNcQVq7uJUhrgbpGOpe4JJ7pUMtt3fgwWQlL6EFj6K1lbmuKiUjgg9mhjdSf5LRxaOl2ydJoIgmDxEyyul5hJYO7dn4g8bX61Jy6Eh1Ek1_uYvUalE7XjNQuxrCfwARURDVl0H3dllxyHIRKySyxysA9ufBdeRiIpIkG5iP1yKBlyj7C2GgiZRMIgQ-wxGMN0dvA1Jcr2P8B8xJjycu0uWZNq_qwOljGlrY9srrJIREtiZis538pSQImg
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_getAgentAndVessels_body'
+              type: object
+              example: {
+                  "vesselQury": {
+                      "fintechStatus": "AUTHORIZED"
+                  },
+                  "agentQuery": {
+                      "fintechStatus": "AUTHORIZED"
+                  }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJDSjR4aUl3eGZPTUVoMTRtVTZxcFNCVW9yM21oRHJWVXdhOGpvclFTbVU0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX3kyNGtacTF4ZiIsImNsaWVudF9pZCI6IjI1Z3I1dW5obTZsYzVhZnNlcmI1aTRiMXJmIiwib3JpZ2luX2p0aSI6ImUzNjAwODMzLTgzN2MtNDRkMC04YWNiLTVmMzM2Y2RiNTg5OCIsImV2ZW50X2lkIjoiZDJhY2M3N2QtMTlhOS00MDNkLWE2MDItZTAyMjU0M2NmOWQ1IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3ODcwODU1NiwiZXhwIjoxNjc4NzIyOTU2LCJpYXQiOjE2Nzg3MDg1NTYsImp0aSI6IjRmMjQzZmViLWRmM2QtNDY2YS1iZTQ3LTBhNWFiMDcxYjQyZSIsInVzZXJuYW1lIjoiZGV2bWFrZXIifQ.SCKdlYv3sqYwxRpf7eNm4teV9BVCrXi0k2rcAapJnENqSWPMTEkYoKm2HTBHJMPLhCjn_zllBiWAxSn-wv0GV_pGCc2wfjNcQVq7uJUhrgbpGOpe4JJ7pUMtt3fgwWQlL6EFj6K1lbmuKiUjgg9mhjdSf5LRxaOl2ydJoIgmDxEyyul5hJYO7dn4g8bX61Jy6Eh1Ek1_uYvUalE7XjNQuxrCfwARURDVl0H3dllxyHIRKySyxysA9ufBdeRiIpIkG5iP1yKBlyj7C2GgiZRMIgQ-wxGMN0dvA1Jcr2P8B8xJjycu0uWZNq_qwOljGlrY9srrJIREtiZis538pSQImg
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/110.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /ebury/getPastBalances:
     post:
-      description: Retrieves the past balances for a specific account.
       tags:
-      - Reports
+        - Reports
       summary: report getPastBalances
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/ebury_getPastBalances_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /report/fundOverview:
     post:
-      description: It gives an overview of the funds.
       tags:
-      - Reports
+        - Reports
       summary: report fundOverview
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_fundOverview_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
   /report/fundOverviewByDept:
     post:
-      description: Gives an overview of the funds.
       tags:
-      - Reports
+        - Reports
       summary: report fundOverviewByDept
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_fundOverviewByDept_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /report/fundProjectionByDept:
     post:
-      description: Gives fund projection by department.
       tags:
-      - Reports
+        - Reports
       summary: report fundProjectionByDept
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_fundProjectionByDept_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
   /report/getSoa:
     post:
-      description: Gets the Statement of Account for given client.
       tags:
-      - Reports
+        - Reports
       summary: report getSoa
-      parameters:
-      - name: accept
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: x-api-key
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11"
-      - name: authorization
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: Bearer eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
-      - name: content-type
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: application/json
-      - name: sec-ch-ua
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
-      - name: sec-ch-ua-mobile
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: ?0
-      - name: sec-ch-ua-platform
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: '"Windows"'
-      - name: sec-fetch-dest
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: empty
-      - name: sec-fetch-mode
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: cors
-      - name: sec-fetch-site
-        in: header
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: same-site
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              $ref: '#/components/schemas/report_getSoa_body'
+              type: object
+              example: {
+                "limit": 10,
+                "skip": 0,
+                "query": {},
+                "sort": {
+                  "createdOn": -1
+                }
+              }
+
+      parameters:
+        - name: authority
+          in: header
+          schema:
+            type: string
+          example: dev-cms-ds.diabosapp.biz
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          example: en-US,en;q=0.9
+        - name: authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJraWQiOiJGZUdiV2N4ZDkwV3hCUllqa01KQlpzSlNMditRRld1eFlOVFFSRCtUMjlFPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhNmQ4MWYyYi03N2JiLTQyZmItODkyNC03YTk4ZDQxMzMwNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV95MjRrWnExeGYiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGV2bWFrZXIiLCJvcmlnaW5fanRpIjoiMTM2YzAxNDQtNmM2My00ZmNlLWFmMDctMmMzNmI1NTkxYzk4IiwiYXVkIjoiMjVncjV1bmhtNmxjNWFmc2VyYjVpNGIxcmYiLCJldmVudF9pZCI6IjExZTEzMGEwLWVmMTktNDE3NC1iYWUzLTIzZWExODMyNjNlMSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjc5ODk2MjMyLCJleHAiOjE2Nzk5MTA2MzIsImlhdCI6MTY3OTg5NjIzMiwianRpIjoiMDk2N2IxYTctOTIzZC00NzllLWEwNGYtNzk4OTNlYWI5MGQyIiwiZW1haWwiOiJkZXZtYWtlckB5b3BtYWlsLmNvbSJ9.JQG7w5YiMLAWl-OCPn2dSvzOWERTOhWBNA-AAyTAxRq4i5We4hfCdluM33slut7rbufP7ttHtFFqDtPSWF8MCc3AypFArNzE_eu_qU53EX7b1fvPmyQPy_IXUScudRPXiuq_QmhqEJXa_4Pqw9WkgCm1xjwcXDz0DDx7lrbNDJ1I9vdHdXwYSAGZwAWUc9nGmLSfBZq5BKP41mqZp1ztdz2yUezOJEn7tYuZw8JGtTMh5T2T6jVxM4jyoQdFP3pU50vc4o3TTgmPJMY7AJOg4AIMW4Of7vGy8nPEI5tYUEokIIHW9GZ7488GabU4FyVTCyl5ce7o5ZvTbOHRcGSS-A
+        - name: content-type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: origin
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz
+        - name: referer
+          in: header
+          schema:
+            type: string
+          example: https://dev-cms.diabosapp.biz/
+        - name: sec-ch-ua
+          in: header
+          schema:
+            type: string
+          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
+        - name: sec-ch-ua-mobile
+          in: header
+          schema:
+            type: string
+          example: '?0'
+        - name: sec-ch-ua-platform
+          in: header
+          schema:
+            type: string
+          example: '"Windows"'
+        - name: sec-fetch-dest
+          in: header
+          schema:
+            type: string
+          example: empty
+        - name: sec-fetch-mode
+          in: header
+          schema:
+            type: string
+          example: cors
+        - name: sec-fetch-site
+          in: header
+          schema:
+            type: string
+          example: same-site
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          example: >-
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/111.0.0.0 Safari/537.36
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: ycqlHySaCH8hX1PmS50ar2dYA1lwJKYm97X1DW11
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json: {}
-      security:
-      - bearerAuth: []
-components:
-  schemas:
-    refinitiv_getResults_body:
-      type: object
-      properties:
-        caseSystemId:
-          type: string
-    paymentsgetGrouped_sort:
-      type: object
-      properties:
-        createdAt:
-          type: number
-    report_getAgentAndVessels_body:
-      type: object
-      properties:
-        vesselQury:
-          $ref: '#/components/schemas/reportgetAgentAndVessels_vesselQury'
-        agentQuery:
-          type: string
-    reportfundOverview_query:
-      type: object
-      properties:
-        ownerId:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        paymentAdviceType:
-          $ref: '#/components/schemas/reportfundOverview_query_paymentAdviceType'
-        trustAccountDetails.iban:
-          type: string
-    paymentsgetNudges_sort:
-      type: object
-      properties:
-        createdOn:
-          type: number
-    report_getSoa_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        query:
-          $ref: '#/components/schemas/reportgetSoa_query'
-    payments_getNudges_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        query:
-          $ref: '#/components/schemas/paymentsgetNudges_query'
-        sort:
-          $ref: '#/components/schemas/paymentsgetNudges_sort'
-    notification_get_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        query:
-          $ref: '#/components/schemas/notificationget_query'
-        date:
-          type: string
-    reportfundProjection_query:
-      type: object
-      properties:
-        ownerId:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-    payments_getPayments_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        query:
-          $ref: '#/components/schemas/paymentsgetPayments_query'
-        sort:
-          $ref: '#/components/schemas/paymentsgetGrouped_sort'
-    reportfundOverview_query_paymentAdviceType:
-      type: object
-      properties:
-        sample:
-          type: array
-          items:
-            type: string
-    notificationget_query:
-      type: object
-      properties:
-        userId:
-          type: string
-        read:
-          type: boolean
-    eburygetPastBalances_query:
-      type: object
-      properties:
-        timestamp:
-          type: string
-    reportfundProjectionByDept_query_tier.dept:
-      type: object
-      properties:
-        _$elemMatch:
-          $ref: reportfundOverviewByDept_query_tier.dept__elemMatch
-    reportfundProjection_query_ownerId:
-      type: object
-      properties:
-        _$in:
-          type: array
-          items:
-            type: string
-    reportfundOverviewByDept_query_tier:
-      type: object
-      properties:
-        _$exists:
-          type: array
-          items:
-            type: string
-    report_fundProjection_body:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/reportfundProjection_query'
-        iban:
-          type: string
-        legalentityid:
-          type: string
-        from:
-          type: string
-        to:
-          type: string
-    ebury_getPastBalances_body:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/eburygetPastBalances_query'
-    notification_markAsRead_body:
-      type: object
-      properties:
-        ids:
-          type: array
-          items:
-            type: string
-        user_id:
-          type: string
-    report_fundOverview_body:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/reportfundOverview_query'
-    reportgetSoa_query_valueDate:
-      type: object
-      properties:
-        _$gte:
-          type: string
-        _$lte:
-          type: string
-    reportfundOverviewByDept_query_tier.dept__elemMatch:
-      type: object
-      properties:
-        deptId:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-    paymentsgetNudges_query:
-      type: object
-      properties:
-        nudgeBy:
-          type: string
-    paymentsgetPayments_query:
-      type: object
-      properties:
-        fintechStatus:
-          type: string
-        portcallNo:
-          $ref: '#/components/schemas/paymentsgetPayments_query_portcallNo'
-    notification_find_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        query:
-          type: object
-        sort:
-          type: object
-    paymentsgetGrouped_query:
-      type: object
-      properties:
-        subStatus:
-          type: string
-    reportgetAgentAndVessels_vesselQury:
-      type: object
-      properties:
-        fintechStatus:
-          type: string
-    reportgetSoa_query_sort:
-      type: object
-      properties:
-        valueDate:
-          type: string
-    reportgetSoa_query:
-      type: object
-      properties:
-        ownerId:
-          type: string
-        trustAccountdetails.iban:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        valueDate:
-          $ref: '#/components/schemas/reportgetSoa_query_valueDate'
-        fintechStatus:
-          type: string
-        sort:
-          $ref: '#/components/schemas/reportgetSoa_query_sort'
-    reportfundOverviewByDept_query:
-      type: object
-      properties:
-        tier:
-          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier'
-        ownerId:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        trustAccountDetails.iban:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        tier.dept:
-          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier.dept'
-    reportfundProjectionByDept_query:
-      type: object
-      properties:
-        tier:
-          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier'
-        ownerId:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        trustAccountDetails.iban:
-          $ref: '#/components/schemas/reportfundProjection_query_ownerId'
-        tier.dept:
-          $ref: '#/components/schemas/reportfundProjectionByDept_query_tier.dept'
-    payments_getGrouped_body:
-      type: object
-      properties:
-        limit:
-          type: number
-        skip:
-          type: number
-        sort:
-          $ref: '#/components/schemas/paymentsgetGrouped_sort'
-        query:
-          $ref: '#/components/schemas/paymentsgetGrouped_query'
-    report_fundOverviewByDept_body:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/reportfundOverviewByDept_query'
-    ebury_getAccountBalances_body:
-      type: object
-      properties:
-        clientId:
-          type: string
-    paymentsgetPayments_query_portcallNo:
-      type: object
-      properties:
-        _$regex:
-          type: string
-        _options:
-          type: string
-    report_fundProjectionByDept_body:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/reportfundProjectionByDept_query'
-    ebury_getClientBalances_body:
-      type: object
-      properties:
-        client_id:
-          type: string
-    reportfundOverviewByDept_query_tier.dept:
-      type: object
-      properties:
-        _$elemMatch:
-          $ref: '#/components/schemas/reportfundOverviewByDept_query_tier.dept__elemMatch'
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
