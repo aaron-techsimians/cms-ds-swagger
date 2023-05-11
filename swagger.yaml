@@ -36,11 +36,7 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -103,21 +99,13 @@ paths:
                 {"limit":10,"skip":0,"query":{"nudgeBy":""},"sort":{"createdOn":-1}}
 
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -130,53 +118,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -240,21 +184,13 @@ paths:
                 {"createdAt": -1},"query":
                 {"subStatus": "inMakerWallet"}}
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -267,53 +203,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -339,21 +231,13 @@ paths:
                 {"fintechStatus":"PENDING_OF_AUTHORIZATION","portcallNo":
                 {"$regex": "","$options":"i"}},"sort": {"createdAt": -1}}
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -366,53 +250,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -435,21 +275,13 @@ paths:
               type: object
               example: {"client_id":"EBPCLI285624"}
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -462,53 +294,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -584,21 +372,13 @@ paths:
               example: {"ids": ["64009594e22b6dc231ea891a"],"user_id":
                 "e03baee9-edf3-404a-a3ad-dccb65ce8d94"}
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -611,53 +391,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -681,21 +417,13 @@ paths:
               example: {"limit":10,"skip":0,"query":{},"sort":{"createdOn":-1}}
 
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -708,53 +436,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -807,21 +491,13 @@ paths:
                 }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -834,53 +510,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -910,21 +542,13 @@ paths:
                   }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -937,53 +561,9 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/110.0.0.0 Safari/537.36
+
+
+        
         - name: x-api-key
           in: header
           schema:
@@ -1013,21 +593,13 @@ paths:
                 }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -1040,16 +612,8 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
+
+
         - name: sec-ch-ua
           in: header
           schema:
@@ -1116,21 +680,13 @@ paths:
                 }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -1143,16 +699,8 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
+
+
         - name: sec-ch-ua
           in: header
           schema:
@@ -1219,21 +767,13 @@ paths:
                 }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -1246,16 +786,8 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
+
+
         - name: sec-ch-ua
           in: header
           schema:
@@ -1322,21 +854,13 @@ paths:
                 }
               }
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -1349,16 +873,8 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
+
+
         - name: sec-ch-ua
           in: header
           schema:
@@ -1426,21 +942,13 @@ paths:
               }
 
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
+
         - name: accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: accept-language
-          in: header
-          schema:
-            type: string
-          example: en-US,en;q=0.9
+        
         - name: authorization
           in: header
           schema:
@@ -1453,16 +961,8 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
+
+
         - name: sec-ch-ua
           in: header
           schema:
