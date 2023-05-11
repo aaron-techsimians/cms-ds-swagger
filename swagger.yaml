@@ -31,11 +31,6 @@ paths:
               type: object
               example: {"clientId":"EBPCLI285630"}
       parameters:
-        - name: authority
-          in: header
-          schema:
-            type: string
-          example: dev-cms-ds.diabosapp.biz
         - name: accept
           in: header
           schema:
@@ -58,53 +53,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: origin
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz
-        - name: referer
-          in: header
-          schema:
-            type: string
-          example: https://dev-cms.diabosapp.biz/
-        - name: sec-ch-ua
-          in: header
-          schema:
-            type: string
-          example: '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"'
-        - name: sec-ch-ua-mobile
-          in: header
-          schema:
-            type: string
-          example: '?0'
-        - name: sec-ch-ua-platform
-          in: header
-          schema:
-            type: string
-          example: '"Windows"'
-        - name: sec-fetch-dest
-          in: header
-          schema:
-            type: string
-          example: empty
-        - name: sec-fetch-mode
-          in: header
-          schema:
-            type: string
-          example: cors
-        - name: sec-fetch-site
-          in: header
-          schema:
-            type: string
-          example: same-site
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-          example: >-
-            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-            like Gecko) Chrome/111.0.0.0 Safari/537.36
         - name: x-api-key
           in: header
           schema:
