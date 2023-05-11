@@ -3,7 +3,7 @@ info:
   title: Cms_DS
   version: 1.0.0
 servers:
-  - url: https://cors-anywhere.herokuapp.com/https://api-dev.diabosapp.biz/cms-ds
+  - url: https://api-dev.diabosapp.biz/cms-ds
 components:
   securitySchemes:
     bearerAuth:            # arbitrary name for the security scheme
